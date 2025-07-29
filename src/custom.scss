@@ -1,0 +1,78 @@
+
+$carousel-image-width: 800px;
+$carousel-image-max-height: 500px;
+$border-radius-lg: 15px;
+$border-radius-md: 10px;
+$transition-base: all 0.3s ease;
+
+$theme-colors: (
+  "primary": #31bdcf,
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.carousel-item {
+  position: relative;
+  
+  img {
+    width: $carousel-image-width;
+    height: $carousel-image-max-height;
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+  }
+}
+
+.hover-card {
+  transition: $transition-base;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    
+    .card-img-top {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.modal-content {
+  border: none;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+.badge {
+  transition: $transition-base;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.card {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  
+  &-header {
+    border-bottom: none;
+  }
+  
+  &-img-top {
+    transition: transform 0.3s ease;
+  }
+}
+
+.btn {
+  border-radius: $border-radius-md;
+  transition: $transition-base;
+}
+
+

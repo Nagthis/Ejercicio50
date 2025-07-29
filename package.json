@@ -1,0 +1,18 @@
+{
+  "name": "bootstrap-project-ae5",
+  "version": "1.0.0",
+  "description": "Proyecto Bootstrap 5 responsive con carousel, formularios y cards",
+  "main": "dist/index.html",
+  "scripts": {
+    "build": "sass src/custom.scss dist/main.css --no-source-map --style=compressed",
+    "dev": "sass src/custom.scss dist/main.css --no-source-map --watch",
+    "serve": "live-server dist/"
+  },
+  "keywords": ["bootstrap", "responsive", "carousel", "forms", "cards", "sass"],
+  "author": "Estudiante ABP-AE5",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "bootstrap": "^5.3.7"
+  }
+}
