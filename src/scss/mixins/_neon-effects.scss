@@ -1,0 +1,104 @@
+$neon-primary: #31bdcf !default;
+$neon-white: #ffffff !default;
+$neon-black: #000000 !default;
+
+@mixin neon-text(
+  $color: $neon-primary,
+  $text-color: $neon-black,
+  $stroke-color: $neon-white,
+  $stroke-width: 2px,
+  $font-weight: 900,
+  $font-size: null
+) {
+  color: $text-color;
+  font-weight: $font-weight;
+  -webkit-text-stroke: $stroke-width $stroke-color;
+  
+  @if $font-size {
+    font-size: $font-size;
+  }
+  
+  -webkit-text-fill-color: $text-color;
+  
+  text-shadow: 
+    0 0 10px rgba($color, 0.9),
+    0 0 20px rgba($color, 0.7),
+    0 0 30px rgba($color, 0.5);
+}
+
+@mixin neon-button(
+  $color: $neon-primary,
+  $size: 48px,
+  $border-radius: 50%,
+  $bg-color: transparent,
+  $hover-scale: 1.1
+) {
+  width: $size;
+  height: $size;
+  border-radius: $border-radius;
+  background-color: $bg-color;
+  border: 2px solid rgba($color, 0.3);
+  
+  filter: drop-shadow(0 0 10px rgba($color, 0.6))
+          drop-shadow(0 0 20px rgba($color, 0.4));
+  
+  transition: all 0.3s ease-in-out;
+  
+  &:hover {
+    transform: scale($hover-scale);
+    filter: drop-shadow(0 0 15px rgba($color, 0.8))
+            drop-shadow(0 0 25px rgba($color, 0.6))
+            drop-shadow(0 0 35px rgba($color, 0.4));
+    border-color: rgba($color, 0.6);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($color, 0.3);
+  }
+}
+
+@mixin neon-icon(
+  $color: $neon-primary,
+  $size: 24px
+) {
+  width: $size;
+  height: $size;
+  filter: drop-shadow(0 0 8px rgba($color, 0.7))
+          drop-shadow(0 0 15px rgba($color, 0.5));
+  
+  transition: filter 0.3s ease-in-out;
+}
+
+@mixin neon-border(
+  $color: $neon-primary,
+  $width: 2px,
+  $blur: 10px
+) {
+  border: $width solid rgba($color, 0.4);
+  box-shadow: 
+    0 0 $blur rgba($color, 0.6),
+    inset 0 0 $blur rgba($color, 0.2);
+}
+
+@mixin neon-pulse(
+  $color: $neon-primary,
+  $duration: 2s
+) {
+  animation: neon-pulse-#{unique-id()} $duration ease-in-out infinite alternate;
+  
+  @keyframes neon-pulse-#{unique-id()} {
+    from {
+      text-shadow: 
+        0 0 10px rgba($color, 0.9),
+        0 0 20px rgba($color, 0.7),
+        0 0 30px rgba($color, 0.5);
+    }
+    to {
+      text-shadow: 
+        0 0 20px rgba($color, 1),
+        0 0 30px rgba($color, 0.9),
+        0 0 40px rgba($color, 0.7);
+    }
+  }
+}

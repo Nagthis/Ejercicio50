@@ -1,0 +1,145 @@
+@import '../variables';
+@import '../mixins/common';
+
+.card {
+  @include card-variant();
+  @include transition();
+  overflow: hidden;
+  
+  &-img-top {
+    @include transition(transform, 0.3s, ease);
+    object-fit: cover;
+  }
+  
+  &-body {
+    @include spacing($padding: map-get($spacers, 4));
+  }
+  
+  &-title {
+    @include font($font-size-lg, $font-weight-semibold);
+    margin-bottom: map-get($spacers, 2);
+  }
+  
+  &-text {
+    @include font($font-size-base, $font-weight-normal);
+    color: $gray-600;
+  }
+  
+  &:hover {
+    .card-img-top {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.btn {
+  @include border-radius($border-radius-md);
+  @include transition();
+  @include font($font-size-base, $font-weight-medium);
+  
+  &-primary {
+    @include button-variant($primary-color, $primary-color);
+  }
+  
+  &-secondary {
+    @include button-variant($secondary-color, $secondary-color);
+  }
+  
+  &-success {
+    @include button-variant($success-color, $success-color);
+  }
+  
+  &-danger {
+    @include button-variant($danger-color, $danger-color);
+  }
+  
+  &-lg {
+    @include spacing($padding: map-get($spacers, 3) map-get($spacers, 4));
+    @include font($font-size-lg, $font-weight-medium);
+  }
+  
+  &-sm {
+    @include spacing($padding: map-get($spacers, 1) map-get($spacers, 2));
+    @include font($font-size-sm, $font-weight-medium);
+  }
+}
+
+.navbar {
+  @include box-shadow($box-shadow-sm);
+  
+  &-brand {
+    @include font($font-size-xl, $font-weight-bold);
+  }
+  
+  &-nav {
+    .nav-link {
+      @include font($font-size-base, $font-weight-medium);
+      @include transition();
+      
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.modal {
+  &-content {
+    @include border-radius($border-radius-lg);
+    @include box-shadow($box-shadow-lg);
+  }
+  
+  &-header {
+    @include spacing($padding: map-get($spacers, 4));
+    border-bottom: 1px solid $gray-200;
+  }
+  
+  &-body {
+    @include spacing($padding: map-get($spacers, 4));
+  }
+  
+  &-footer {
+    @include spacing($padding: map-get($spacers, 3) map-get($spacers, 4));
+    border-top: 1px solid $gray-200;
+  }
+}
+
+.form-control {
+  @include border-radius($border-radius);
+  @include transition();
+  border: 1px solid $gray-300;
+  
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+  }
+}
+
+.alert {
+  @include border-radius($border-radius);
+  @include spacing($padding: map-get($spacers, 3));
+  
+  &-success {
+    background-color: lighten($success-color, 45%);
+    border-color: lighten($success-color, 35%);
+    color: darken($success-color, 10%);
+  }
+  
+  &-danger {
+    background-color: lighten($danger-color, 45%);
+    border-color: lighten($danger-color, 35%);
+    color: darken($danger-color, 10%);
+  }
+  
+  &-warning {
+    background-color: lighten($warning-color, 35%);
+    border-color: lighten($warning-color, 25%);
+    color: darken($warning-color, 20%);
+  }
+  
+  &-info {
+    background-color: lighten($info-color, 45%);
+    border-color: lighten($info-color, 35%);
+    color: darken($info-color, 15%);
+  }
+}

@@ -69,16 +69,96 @@ Proyecto web responsive desarrollado con Bootstrap 5 como framework CSS principa
 3. **Abrir en navegador:**
    Abrir `dist/index.html` en cualquier navegador moderno
 
-## Responsive Design
+## Estructura SASS Modular
+
+```
+src/
+├── scss/
+│   ├── _variables.scss         # Variables globales
+│   ├── mixins/
+│   │   ├── _index.scss         # Índice de mixins
+│   │   ├── _common.scss        # Mixins comunes
+│   │   ├── _responsive.scss    # Mixins para responsividad
+│   │   └── _neon-effects.scss  # Efectos neón
+│   └── components/
+│       ├── _index.scss         # Índice de componentes
+│       ├── _bootstrap-custom.scss # Personalización Bootstrap
+│       └── _buttons.scss       # Botones personalizados
+└── custom.scss                 # Archivo principal
+```
+
+## Características Técnicas SASS
+
+### Variables Globales
+
+- **Colores:** Sistema de colores consistente
+- **Tipografía:** Tamaños y pesos de fuente
+- **Espaciado:** Sistema de spacing escalable
+- **Breakpoints:** Puntos de quiebre responsive
+
+### Mixins Implementados
+
+- **spacing():** Márgenes y padding
+- **transition():** Transiciones personalizables
+- **flex-center():** Centrado con flexbox
+- **button-variant():** Variantes de botones
+- **card-variant():** Estilos de tarjetas
+- **hover-lift():** Efectos de elevación
+- **responsive-font():** Tipografía fluida
+- **media-breakpoint-up/down():** Media queries
+
+### Responsive Design
 
 - **Desktop:** Layout de 3 columnas para productos
 - **Tablet:** Layout de 2 columnas
 - **Mobile:** Layout de 1 columna con menú hamburguesa
+- **Tipografía fluida:** Tamaños adaptativos según viewport
 
-## Características Técnicas
+### Personalización Bootstrap
 
-- **Carousel:** Imágenes uniformes 800x500px
-- **Cards:** Altura uniforme con flex-grow
-- **Modal:** Centrado con animaciones suaves
-- **Formulario:** Validación nativa HTML5
-- **Performance:** CSS optimizado y minificado
+- **Botones:** Estilos personalizados con efectos
+- **Cards:** Animaciones y sombras mejoradas
+- **Navbar:** Comportamiento responsive optimizado
+- **Modal:** Estilos y animaciones personalizadas
+- **Formularios:** Validación visual mejorada
+
+## Cambios Implementados - ABPRO5
+
+### ✅ Uso de SASS para Modularización
+
+**Variables Globales (\_variables.scss):**
+
+- Sistema completo de colores (primarios, secundarios, grises)
+- Variables de tipografía (tamaños, pesos, line-height)
+- Sistema de espaciado escalable
+- Breakpoints y contenedores responsive
+- Variables para componentes específicos
+
+**Mixins Reutilizables:**
+
+- **\_common.scss:** Mixins para spacing, transiciones, flexbox, posicionamiento
+- **\_responsive.scss:** Mixins para responsividad y tipografía fluida
+- **\_neon-effects.scss:** Efectos neón personalizados
+
+**Personalización Bootstrap:**
+
+- Componentes Bootstrap personalizados sin perder flexibilidad
+- Estilos para botones, cards, navbar, modal, formularios
+- Integración perfecta con el sistema de Bootstrap
+
+### ✅ Responsividad y Personalización
+
+**Sistema Responsive Completo:**
+
+- Mixins específicos para diferentes breakpoints
+- Tipografía fluida que se adapta al viewport
+- Grid system personalizado con CSS Grid
+- Carousel responsive con diferentes alturas por dispositivo
+- Navbar completamente adaptativa
+
+**Código Limpio y Profesional:**
+
+- Eliminación de comentarios innecesarios
+- Estructura modular y escalable
+- Variables semánticas y reutilizables
+- Mixins optimizados para rendimiento
